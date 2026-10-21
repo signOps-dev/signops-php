@@ -1,0 +1,32 @@
+{
+    "name": "signops/signops-php",
+    "description": "SignOps for PHP: push notifications to Android, iOS and the web, push approval of logins, passkeys and webhooks.",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://signops.dev/",
+    "support": {
+        "email": "hello@signops.dev",
+        "docs": "https://signops.dev/docs/"
+    },
+    "require": {
+        "php": ">=8.1",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SignOps\\": "src/"
+        }
+    },
+    "keywords": [
+        "push notifications",
+        "fcm",
+        "apns",
+        "web push",
+        "passkeys",
+        "webauthn",
+        "push authentication",
+        "signops",
+        "laravel"
+    ]
+}
