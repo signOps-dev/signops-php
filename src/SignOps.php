@@ -22,7 +22,10 @@ final class SignOps
     public readonly Templates $templates;
     public readonly Approve $approve;
     public readonly Passkeys $passkeys;
+    public readonly Totp $totp;
+    public readonly Users $users;
     public readonly Otp $otp;
+    public readonly MagicLinks $magicLinks;
     public readonly Webhooks $webhooks;
 
     private string $key;
@@ -48,7 +51,10 @@ final class SignOps
         $this->templates = new Templates($this);
         $this->approve = new Approve($this);
         $this->passkeys = new Passkeys($this);
+        $this->totp = new Totp($this);
+        $this->users = new Users($this);
         $this->otp = new Otp($this);
+        $this->magicLinks = new MagicLinks($this);
         $this->webhooks = new Webhooks($options['webhook_secret'] ?? (getenv('SIGNOPS_WEBHOOK_SECRET') ?: null));
     }
 
@@ -105,7 +111,8 @@ final class SignOps
             if ($status >= 200 && $status < 300) {
                 return $json;
             }
-            if (($status === 429 || $status >= 500) && $attempt < $retries) {
+            // A locked user stays locked for minutes: retrying would only wait, so it is thrown at once.
+            if (($status === 429 || $status >= 500) && ($json['error']['code'] ?? '') !== 'user_locked' && $attempt < $retries) {
                 $wait = (float) ($responseHeaders['retry-after'] ?? 0) ?: 0.5 * 2 ** $attempt;
                 usleep((int) (min($wait, 10) * 1000000));
                 continue;

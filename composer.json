@@ -6,7 +6,9 @@
     "homepage": "https://signops.dev/",
     "support": {
         "email": "hello@signops.dev",
-        "docs": "https://signops.dev/docs/"
+        "docs": "https://signops.dev/docs/",
+        "source": "https://github.com/signops-dev/signops-php",
+        "issues": "https://github.com/signops-dev/signops-php/issues"
     },
     "require": {
         "php": ">=8.1",

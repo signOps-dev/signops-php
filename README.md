@@ -9,7 +9,7 @@ composer require signops/signops-php
 Until the package is on Packagist, add this repository to your `composer.json` first:
 
 ```json
-"repositories": [{ "type": "vcs", "url": "https://github.com/rushi-pa/signops-php" }]
+"repositories": [{ "type": "vcs", "url": "https://github.com/signops-dev/signops-php" }]
 ```
 
 ```php
