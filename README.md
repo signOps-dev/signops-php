@@ -1,15 +1,9 @@
 # signops/signops-php
 
-SignOps for PHP: push notifications to Android, iOS and the web, push approval of logins, passkeys and webhooks, on one API key and your own user ids. Website: https://signops.dev. Docs: https://signops.dev/docs/
+[SignOps](https://signops.dev) for PHP: push notifications to Android, iOS and the web, push approval of logins, passkeys and webhooks, on one API key and your own user ids. Docs: https://signops.dev/docs/
 
 ```sh
 composer require signops/signops-php
-```
-
-Until the package is on Packagist, add this repository to your `composer.json` first:
-
-```json
-"repositories": [{ "type": "vcs", "url": "https://github.com/signops-dev/signops-php" }]
 ```
 
 ```php
